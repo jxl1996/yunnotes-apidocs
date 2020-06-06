@@ -77,6 +77,30 @@
 }
 ```
 
+### 邮箱注册
+
++ 请求方式：POST
++ 请求地址：/auth/reg-by-email
++ 请求参数：
+
+| 参数           | 描述      |
+| -------------- | --------- |
+| key            | 验证码key |
+| code           | 验证码    |
+| invitationCode | 邀请码    |
+
++ 返回示例
+
+```
+{
+    "msg": "注册成功",
+    "code": 1,
+    "data": {
+        "accessToken": "Bearer 11|OakSXk9nOc2WFUfMvLo4TAUuGI5XuIXZTXPa8GXiTlUFAvbirlyQ2j9qQTRWg570C6J3YKwjRhcV9CGk"
+    }
+}
+```
+
 ### 会员登录
 
 + 请求方式：POST
@@ -100,7 +124,7 @@
 }
 ```
 
-### 发送注册验证码
+### 发送短信注册验证码
 
 + 请求方式：POST
 + 请求地址：/sms/send-reg-code
@@ -119,6 +143,29 @@
     "data": {
         "key": "verificationCode_N7xAdVH8NZV5G8r",
         "expired_at": "2020-06-06 15:57:30"
+    }
+}
+```
+
+### 发送邮件注册验证码
+
++ 请求方式：POST
++ 请求地址：/email/send
++ 请求参数：
+
+| 参数  | 描述     |
+| ----- | -------- |
+| email | 邮件地址 |
+
++ 返回示例：
+
+```json
+{
+    "msg": "success",
+    "code": 1,
+    "data": {
+        "key": "EmailCode_ztgbNnxkVOi3LI5",
+        "expired_at": "2020-06-06 17:38:36"
     }
 }
 ```
