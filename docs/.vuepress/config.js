@@ -1,5 +1,5 @@
 module.exports = {
-    base: '/yunnotes/',
+    base: '/yunnotes-apidocs/',
     //网站的标题，它将会被用作所有页面标题的前缀，同时，默认主题下，它将显示在导航栏（navbar）上。
     title: 'yun-notes',
 
