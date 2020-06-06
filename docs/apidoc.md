@@ -27,10 +27,10 @@
 }
 ```
 
-### 会员注册
+### 账号注册
 
 + 请求方式：POST
-+ 请求地址：/auth/register
++ 请求地址：/auth/reg
 + 请求参数：
 
 | Body参数名     | 描述   |
@@ -49,6 +49,30 @@
     "code": 1,
     "data": {
         "accessToken": "Bearer 8|zQ5TnvHTyN1oXLzcRtvFC3o3zdsLppJT4TweFFGdtqRljGq8qF3IwXggYRt4P1UfmQCyswUjlWvKvxlS"
+    }
+}
+```
+
+### 短信注册
+
++ 请求方式：POST
++ 请求地址：/auth/reg-by-sms
++ 请求参数：
+
+| 参数           | 描述      |
+| -------------- | --------- |
+| key            | 验证码key |
+| code           | 验证码    |
+| invitationCode | 邀请码    |
+
++ 返回示例：
+
+```json
+{
+    "msg": "注册成功",
+    "code": 1,
+    "data": {
+        "accessToken": "Bearer 10|UowijdTzT2Z5jWLNmW03RpaLeXZBMbj9XIjt0Qkrl5lZYOrvbXCFXIHroXoMb4iUz42blov9Cg7d4MAi"
     }
 }
 ```
@@ -72,6 +96,29 @@
     "code": 1,
     "data": {
         "accessToken": "Bearer 9|WE6HhJ7l7KTcirgEzgNEUpBCj4PVTscGWZMYFoSMpw30saJUK1EgKWcJjERyypQXX5rLi2BDmFvtFhE1"
+    }
+}
+```
+
+### 发送注册验证码
+
++ 请求方式：POST
++ 请求地址：/sms/send-reg-code
++ 请求参数：
+
+| 参数     | 描述   |
+| -------- | ------ |
+| phoneNum | 手机号 |
+
++ 返回示例：
+
+```json
+{
+    "msg": "success",
+    "code": 1,
+    "data": {
+        "key": "verificationCode_N7xAdVH8NZV5G8r",
+        "expired_at": "2020-06-06 15:57:30"
     }
 }
 ```
