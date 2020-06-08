@@ -1,17 +1,20 @@
-## 接口文档
+---
+title: 接口列表
+---
 
-### 系统参数获取
+## 系统参数获取
 
-+ 请求方式：GET
++ 请求方式：POST
 + 请求地址：/settings
 + 详细说明：用户打开软件时获取对应系统参数根据参数决定用户端部分展示项
 + 返回参数：
 
-| 参数            | 说明                                  |
-| --------------- | ------------------------------------- |
-| isInvitationReg | 1、是；2、否；是否需要使用邀请码注册  |
-| isRelationBut   | 1、是；2、否； 是否展示收藏网址的按钮 |
-| fileUrl         | 文件服务器地址                        |
+| 参数            | 说明                                       |
+| --------------- | ------------------------------------------ |
+| isInvitationReg | 1、是；2、否；是否需要使用邀请码注册       |
+| isRelationBut   | 1、是；2、否； 是否展示收藏网址的按钮      |
+| fileUrl         | 文件服务器地址                             |
+| reg_type        | 注册方式：1.账号注册 2.短信注册 3.邮箱注册 |
 
 + 返回示例：
 
@@ -22,12 +25,13 @@
     "data": {
         "fileUrl": "https://learnku.com/",
         "isInvitationReg": true,
-        "isRelationBut": false
+        "isRelationBut": false,
+        "reg_type": "2"
     }
 }
 ```
 
-### 账号注册
+## 账号注册
 
 + 请求方式：POST
 + 请求地址：/auth/reg
@@ -53,7 +57,7 @@
 }
 ```
 
-### 短信注册
+## 短信注册
 
 + 请求方式：POST
 + 请求地址：/auth/reg-by-sms
@@ -77,7 +81,7 @@
 }
 ```
 
-### 邮箱注册
+## 邮箱注册
 
 + 请求方式：POST
 + 请求地址：/auth/reg-by-email
@@ -101,7 +105,7 @@
 }
 ```
 
-### 会员登录
+## 会员登录
 
 + 请求方式：POST
 + 请求地址：/auth/login
@@ -124,7 +128,7 @@
 }
 ```
 
-### 发送短信注册验证码
+## 发送短信注册验证码
 
 + 请求方式：POST
 + 请求地址：/sms/send-reg-code
@@ -147,7 +151,7 @@
 }
 ```
 
-### 发送邮件注册验证码
+## 发送邮件注册验证码
 
 + 请求方式：POST
 + 请求地址：/email/send
@@ -170,9 +174,9 @@
 }
 ```
 
-### 获取用户信息
+## 获取用户信息
 
-+ 请求方式：GET
++ 请求方式：POST
 + 请求地址：/profile/userinfo
 + 请求header：
 
@@ -204,7 +208,7 @@ Authorization：Bearer 4|bayCPlQPaL2hMltVZ2FfQkDSLzIUmyKgcf0rc3brkx8mo2yDXxYa0v7
 }
 ```
 
-### 编辑会员信息
+## 编辑会员信息
 
 + 请求方式：POST
 + 请求地址：/profile/update
@@ -238,7 +242,7 @@ Authorization：Bearer 4|bayCPlQPaL2hMltVZ2FfQkDSLzIUmyKgcf0rc3brkx8mo2yDXxYa0v7
 }
 ```
 
-### 修改密码
+## 修改密码
 
 + 请求方式：POST
 + 请求地址：/profile/update-pwd
@@ -265,7 +269,7 @@ Authorization：Bearer 4|bayCPlQPaL2hMltVZ2FfQkDSLzIUmyKgcf0rc3brkx8mo2yDXxYa0v7
 }
 ```
 
-### 上传头像
+## 上传头像
 
 + 请求方式：POST
 + 请求地址：/upload/upload-img
@@ -294,9 +298,9 @@ Authorization：Bearer 4|bayCPlQPaL2hMltVZ2FfQkDSLzIUmyKgcf0rc3brkx8mo2yDXxYa0v7
 }
 ```
 
-### 关联地址列表
+## 关联地址列表
 
-+ 请求方式：GET
++ 请求方式：POST
 + 请求地址：/profile/relation-urls
 + 详细说明：根据用户注册时邀请码查询出对应关联地址列表，不分页
 + 请求header：
@@ -315,9 +319,13 @@ Authorization：Bearer 4|bayCPlQPaL2hMltVZ2FfQkDSLzIUmyKgcf0rc3brkx8mo2yDXxYa0v7
 }
 ```
 
+:::danger
+
 data为 `base64` 加密后的字符串，根据返回状态码判断是否需要跳转：201说明需要跳转。
 
-### 文件上传
+:::
+
+## 文件上传
 
 + 请求方式：POST
 + 请求地址：/file-list/upload
@@ -371,9 +379,9 @@ Authorization：Bearer 4|bayCPlQPaL2hMltVZ2FfQkDSLzIUmyKgcf0rc3brkx8mo2yDXxYa0v7
 }
 ```
 
-### 文件列表
+## 文件列表
 
-+ 请求方式：GET
++ 请求方式：POST
 + 请求地址：/file-list
 + 详细说明：根据用户查询文件列表，按更新时间倒序排列，分页
 + 请求header：
